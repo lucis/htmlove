@@ -1,1 +1,29 @@
+# Environment variables
 .dev.vars
+.env
+.env.local
+
+# Wrangler build artifacts
+.wrangler/
+.miniflare/
+.mf/
+wrangler-logs/
+
+# Build output
+dist/
+build/
+
+# Node modules (caso instale localmente)
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
