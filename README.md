@@ -45,6 +45,11 @@ deno install -Ar -g -n deco jsr:@deco/cli
 deco login
 ```
 
+3. Configure the app:
+```bash
+deco configure
+```
+
 ### Running the App
 
 1. Clone this repository

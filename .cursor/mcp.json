@@ -2,7 +2,7 @@
   "mcpServers": {
     "htmlove": {
       "type": "http",
-      "url": "http://localhost:8787/mcp"
+      "url": "https://localhost-511389c0.deco.host/mcp"
     }
   }
 }
