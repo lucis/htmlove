@@ -1,89 +1,89 @@
-# React + Tailwind MCP Server Template
+# HTMLove
 
-A full-stack template for building
-[Model Context Protocol (MCP)](https://spec.modelcontextprotocol.io/) servers
-with a modern React frontend. This template provides a complete development
-environment where your MCP server not only exposes tools and workflows to AI
-agents but also serves a beautiful web interface built with React and Tailwind
-CSS.
+An AI-powered HTML generator with instant deployment to Cloudflare Workers, built as a [deco](https://deco.chat) app example.
 
-## ✨ Features
+<img width="1341" height="940" alt="HTMLove screenshot" src="https://github.com/user-attachments/assets/3808de85-cfc2-4d27-922a-a65bbf7939d7" />
 
-- **🤖 MCP Server**: Cloudflare Workers-based server with typed tools and
-  workflows
-- **⚛️ React Frontend**: Modern React app with Vite, TanStack Router, and
-  Tailwind CSS
-- **🎨 UI Components**: Pre-configured shadcn/ui components for rapid
-  development
-- **🔧 Type Safety**: Full TypeScript support with auto-generated RPC client
-  types
-- **🚀 Hot Reload**: Live development with automatic rebuilding for both
-  frontend and backend
-- **☁️ Ready to Deploy**: One-command deployment to Cloudflare Workers
+## What is HTMLove?
 
-## 🚀 Quick Start
+HTMLove is an example web application that combines AI-powered HTML generation with one-click deployment. Simply describe what you want to build, and HTMLove will generate clean, semantic HTML code that you can edit and deploy instantly.
+
+## 🛠️ MCP Tools Created
+
+This Deco app exposes two MCP (Model Context Protocol) tools:
+
+### `GENERATE_HTML`
+- **Description**: Generate valid HTML code from a textual prompt using Claude 4
+- **Input**: Text description of desired HTML
+- **Output**: Complete HTML code with explanation
+
+### `DEPLOY_WORKER` 
+- **Description**: Deploy HTML code as a Cloudflare Worker
+- **Input**: Worker name and HTML code
+- **Output**: Live URL at `https://[worker-name].deco.page`
+
+## 🔧 Technologies & Integrations Used
+
+- **AI Generation**: Claude 4 (via `DECO_CHAT_WORKSPACE_API.AI_GENERATE_OBJECT`)
+- **Deployment**: Cloudflare Workers (via `DECO_CHAT_WORKSPACE_API.HOSTING_APP_DEPLOY`)
+- **Frontend**: React + TypeScript + Tailwind CSS
+- **Backend**: Deco Workers Runtime with Mastra workflows
+- **Build Tools**: Vite, Wrangler
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js ≥18.0.0
-- Deno ≥2.0.0
-- [Deco CLI](https://deco.chat): `deno install -Ar -g -n deco jsr:@deco/cli`
-
-### Setup
-
+1. Install the Deco CLI:
 ```bash
-# Install dependencies
+deno install -Ar -g -n deco jsr:@deco/cli
+```
+[Full installation guide](https://github.com/deco-cx/chat?tab=readme-ov-file#%EF%B8%8F-using-the-cli)
+
+2. Authenticate with Deco:
+```bash
+deco login
+```
+
+### Running the App
+
+1. Clone this repository
+2. Install dependencies:
+```bash
 npm install
+```
 
-# Configure your app
-npm run configure
-
-# Start development server
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-The server will start on `http://localhost:8787` serving both your MCP endpoints
-and the React frontend.
+4. Access the app at `http://localhost:8787`
 
-## 📁 Project Structure
+## 📦 Project Structure
 
 ```
-├── server/           # MCP Server (Cloudflare Workers + Deco runtime)
-│   ├── main.ts      # Server entry point with tools & workflows
-│   └── deco.gen.ts  # Auto-generated integration types
-└── view/            # React Frontend (Vite + Tailwind CSS)
-    ├── src/
-    │   ├── lib/rpc.ts    # Typed RPC client for server communication
-    │   ├── routes/       # TanStack Router routes
-    │   └── components/   # UI components with Tailwind CSS
-    └── package.json
+htmlove/
+├── server/          # MCP server (Deco runtime + tools)
+│   ├── main.ts      # Tool definitions and server setup
+│   └── deco.gen.ts  # Generated types
+├── view/            # React frontend
+│   └── src/
+│       ├── App.tsx  # Main application
+│       └── lib/     # RPC client
+└── package.json     # Workspace configuration
 ```
 
-## 🛠️ Development Workflow
+## 🎯 Example Deco App
 
-- **`npm run dev`** - Start development with hot reload
-- **`npm run gen`** - Generate types for external integrations
-- **`npm run gen:self`** - Generate types for your own tools/workflows
-- **`npm run deploy`** - Deploy to production
+This project demonstrates how to build a full-stack Deco app with:
+- MCP tool creation and exposure
+- Integration with Deco workspace APIs
+- React frontend with typed RPC communication
+- Deployment to Cloudflare Workers
 
-## 🔗 Frontend ↔ Server Communication
-
-The template includes a fully-typed RPC client that connects your React frontend
-to your MCP server:
-
-```typescript
-// Typed calls to your server tools and workflows
-const result = await client.tools.MY_TOOL({ input: "data" });
-const workflowResult = await client.workflows.MY_WORKFLOW({ input: "data" });
-```
-
-## 📖 Learn More
-
-This template is built for deploying primarily on top of the
-[Deco platform](https://deco.chat/about) which can be found at the
-[deco-cx/chat](https://github.com/deco-cx/chat) repository.
+Perfect as a starting point for building your own Deco apps!
 
 ---
 
-**Ready to build your next MCP server with a beautiful frontend?
-[Get started now!](https://deco.chat)**
+Built with ❤️ using [Deco Platform](https://deco.chat)
